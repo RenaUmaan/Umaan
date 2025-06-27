@@ -1,16 +1,6 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
-# Permitir CORS para que Apps Script (o cualquier frontend) pueda llamar la API
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 @app.get("/saludo")
 def saludo(nombre: str = "amigo"):
